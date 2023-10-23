@@ -1,0 +1,28 @@
+spring:
+  main.allow-bean-definition-overriding: true
+
+# Dados da conexão PostgreSQL
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_tgibank
+    username: {user}
+    password: {pass}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+# Configurações de envio de e-mail
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: {user}
+    password: {pass}
+    
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+    
+# URL de callback
+callbackUrl: {url}

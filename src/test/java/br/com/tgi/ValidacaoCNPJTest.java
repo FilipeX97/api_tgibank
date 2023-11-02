@@ -10,7 +10,7 @@ public class ValidacaoCNPJTest {
 
     @Test
     public void testCNPJValido() {
-        assertTrue(ValidacaoCNPJ.validar("12.345.678/0001-90"));
+        assertTrue(ValidacaoCNPJ.validar("14.686.262/0001-66"));
     }
 
     @Test

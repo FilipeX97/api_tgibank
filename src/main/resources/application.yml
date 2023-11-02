@@ -4,8 +4,8 @@ spring:
 # Dados da conexão PostgreSQL
   datasource:
     url: jdbc:postgresql://localhost:5432/db_tgibank
-    username: {user}
-    password: {pass}
+    username: admin
+    password: 1234
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -17,12 +17,12 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: {user}
-    password: {pass}
+    username: filipe.xavier1928@gmail.com
+    password: vhpqvovticazxtkn
     
     properties.mail.smtp:
       auth: true
       starttls.enable: true
     
 # URL de callback
-callbackUrl: {url}
+callbackUrl: https://webhook.site/f3c6f59c-6720-4b02-95d4-f14daac52a13

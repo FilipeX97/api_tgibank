@@ -1,5 +1,6 @@
 package br.com.tgi.service;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -36,7 +35,7 @@ public class EmpresaService {
 		return empresaRepository.findById(id).get();
 	}
 
-	public Empresa salvarEmpresa(String empresaJson) throws JsonMappingException, JsonProcessingException {
+	public Empresa salvarEmpresa(String empresaJson) throws IOException {
 		JsonNode jsonNode = objectMapper.readTree(empresaJson);
 		Empresa empresa = new Empresa(jsonNode.get("cnpj").asText(), jsonNode.get("nome").asText(),
 				new BigDecimal(jsonNode.get("saldo").asDouble()), jsonNode.get("taxaSistema").asDouble());

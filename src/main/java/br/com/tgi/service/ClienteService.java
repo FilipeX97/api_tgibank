@@ -1,12 +1,11 @@
 package br.com.tgi.service;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -33,7 +32,7 @@ public class ClienteService {
 	}
 
 	public Cliente salvarCliente(String clienteJson, Empresa empresa)
-			throws JsonMappingException, JsonProcessingException {
+			throws IOException {
 		JsonNode jsonNode = objectMapper.readTree(clienteJson);
 		Cliente cliente = new Cliente(jsonNode.get("cpf").asText(), jsonNode.get("nome").asText(), empresa,
 				jsonNode.get("email").asText(), jsonNode.get("telefone").asText());
